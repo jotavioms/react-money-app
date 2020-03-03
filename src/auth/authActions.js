@@ -32,7 +32,7 @@ function submit(values, url) {
 export function validateToken(token) {
   return dispatch => {
     if (token) {
-      axios.post(`${consts.OAPI_URL}/validateToken`, { token })
+      axios.post(`${ENV.URL.OAPI_URL}/validateToken`, { token })
         .then(resp => {
           dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
         })
