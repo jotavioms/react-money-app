@@ -9,19 +9,20 @@ import If from '../common/operator/if';
 
 class ItemList extends Component {
   add(index, item = {}) {
-    if(!this.props.readOnly) {
+    if (!this.props.readOnly) {
       this.props.arrayInsert('billingCycleForm', this.props.field, index, item);
     }
-  }
+  };
 
   remove(index) {
-    if(!this.props.readOnly && this.props.list.length) {
+    if (!this.props.readOnly && this.props.list.length) {
       this.props.arrayRemove('billingCycleForm', this.props.field, index);
     }
-  }
+  };
 
   renderRows() {
     const list = this.props.list || [];
+
     return list.map((item, index) => (
       <tr key={index}>
         <td>
@@ -48,7 +49,7 @@ class ItemList extends Component {
         </td>
       </tr>
     ))
-  }
+  };
 
   render() {
     return (
@@ -73,8 +74,9 @@ class ItemList extends Component {
         </fieldset>
       </Grid>
     )
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => bindActionCreators({ arrayInsert, arrayRemove }, dispatch);
-export default connect(null, mapDispatchToProps)(ItemList)
+
+export default connect(null, mapDispatchToProps)(ItemList);

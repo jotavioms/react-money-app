@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux'; 
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { init, create, remove, update } from './billingCycleActions';
 
 import ContentHeader from '../common/template/contentHeader';
 import Content from '../common/template/content';
@@ -11,8 +13,6 @@ import TabContent from '../common/tab/tabContent';
 import TabsContent from '../common/tab/tabsContent';
 import List from './billingCycleList';
 import Form from './billingCycleForm';
-import { selectTab, showTabs } from '../common/tab/tabActions';
-import { init, create, remove, update } from './billingCycleActions';
 
 class BillingCycle extends Component {
   componentWillMount() {
@@ -49,8 +49,11 @@ class BillingCycle extends Component {
         </Content>
       </div>
     )
-  }
-}
+  };
+};
 
-const mapDispatchToProps = dispatch => bindActionCreators({ init, create, remove, update }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  init, create, remove, update
+}, dispatch);
+
 export default connect(null, mapDispatchToProps)(BillingCycle);

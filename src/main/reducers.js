@@ -14,6 +14,6 @@ const rootReducer = combineReducers({
   billingCycle: BillingCycleReducer,
   form: formReducer,
   toastr: toastrReducer,
-})
+});
 
 export default rootReducer;

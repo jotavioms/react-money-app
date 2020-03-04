@@ -7,4 +7,4 @@ export default props => (
       <i className={`fa fa-${props.icon}`}></i> <span>{props.label}</span>
     </Link>
   </li>
-)
+);

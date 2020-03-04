@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { getSummary } from './dashboardActions';
+
 import ContentHeader from '../common/template/contentHeader';
 import Content from '../common/template/content';
 import ValueBox from '../common/widget/valueBox';
@@ -27,8 +28,8 @@ class Dashboard extends Component {
         </Content>
       </div>
     )
-  }
-}
+  };
+};
 
 const mapStateToProps = state => ({ summary: state.dashboard.summary });
 const mapDispatchToProps = dispatch => bindActionCreators({ getSummary }, dispatch);

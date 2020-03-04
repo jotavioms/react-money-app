@@ -8,21 +8,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import ENV from '../env';
+
 import ContentHeader from '../common/template/contentHeader';
 import Content from '../common/template/content';
 import ValueBox from '../common/widget/valueBox';
 import Row from '../common/layout/row';
 
-const BASE_URL = 'http://localhost:3003/api';
-
 export default class DashboardNoRedux extends Component {
   constructor(props) {
     super(props);
-    this.state = { credit: 0, debt:  0 };
+    this.state = { credit: 0, debt: 0 };
   };
 
   componentWillMount() {
-    axios.get(`${BASE_URL}/billingCycles/summary`).then(resp => this.setState(resp.data));
+    axios.get(`${ENV.URL.API_URL}/billingCycles/summary`).then(resp => this.setState(resp.data));
   };
 
   render() {
@@ -39,5 +39,5 @@ export default class DashboardNoRedux extends Component {
         </Content>
       </div>
     )
-  }
-}
+  };
+};

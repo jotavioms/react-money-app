@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import './auth.css';
+
 import { login, signup } from './authActions';
 
 import Row from '../common/layout/row';
@@ -61,7 +62,7 @@ class Auth extends Component {
         <Messages />
       </div>
     );
-  }
+  };
 };
 
 Auth = reduxForm({ form: 'authForm' })(Auth);

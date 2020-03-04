@@ -18,14 +18,11 @@ function submit(values, url) {
   return dispatch => {
     axios.post(url, values)
       .then(resp => {
-        dispatch([
-          { type: 'USER_FETCHED', payload: resp.data }
-        ]);
+        dispatch({ type: 'USER_FETCHED', payload: resp.data });
       })
       .catch(e => {
-        e.response.data.errors.forEach(
-          error => toastr.error('Erro', error));
-      })
+        e.response.data.errors.forEach(error => toastr.error('Erro', error));
+      });
   }
 };
 
@@ -34,7 +31,7 @@ export function validateToken(token) {
     if (token) {
       axios.post(`${ENV.URL.OAPI_URL}/validateToken`, { token })
         .then(resp => {
-          dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid })
+          dispatch({ type: 'TOKEN_VALIDATED', payload: resp.data.valid });
         })
         .catch(e => dispatch({ type: 'TOKEN_VALIDATED', payload: false }));
     } else {

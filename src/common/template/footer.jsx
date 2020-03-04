@@ -7,4 +7,4 @@ export default props => (
       <a href="http://joaosouza.hol.es" target="_blank"> João Souza</a>
     </strong>
   </footer>
-)
+);

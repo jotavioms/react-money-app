@@ -4,9 +4,10 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { validateToken } from '../auth/authActions';
+
 import App from './app';
 import Auth from '../auth/auth';
-import { validateToken } from '../auth/authActions';
 
 class AuthOrApp extends Component {
   componentWillMount() {
@@ -26,7 +27,7 @@ class AuthOrApp extends Component {
     } else {
       return false;
     }
-  }
+  };
 };
 
 const mapStateToProps = state => ({ auth: state.auth });

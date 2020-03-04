@@ -1,7 +1,8 @@
-const USER_KEY = '_mymoney_user';
+import ENV from '../env';
+
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem(USER_KEY)),
-  validToken: false
+  user: JSON.parse(localStorage.getItem(ENV.APP.USER_KEY)),
+  validToken: false,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -10,15 +11,13 @@ export default (state = INITIAL_STATE, action) => {
       if (action.payload) {
         return { ...state, validToken: true };
       } else {
-        localStorage.removeItem(USER_KEY);
-
+        localStorage.removeItem(ENV.APP.USER_KEY);
         return { ...state, validToken: false, user: null };
       }
     case 'USER_FETCHED':
-      localStorage.setItem(USER_KEY, JSON.stringify(action.payload));
-
+      localStorage.setItem(ENV.APP.USER_KEY, JSON.stringify(action.payload));
       return { ...state, user: action.payload, validToken: true };
     default:
       return state;
-  }
+  };
 };

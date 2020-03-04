@@ -4,4 +4,4 @@ export default props => (
   <div className='row'>
     {props.children}
   </div>
-)
+);

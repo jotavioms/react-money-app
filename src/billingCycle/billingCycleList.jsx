@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 import { getList, showUpdate, showDelete } from './billingCycleActions';
 
 class BillingCycleList extends Component {
@@ -46,7 +47,7 @@ class BillingCycleList extends Component {
         </table>
       </div>
     )
-  }
+  };
 };
 
 const mapStateToProps = state => ({ list: state.billingCycle.list });

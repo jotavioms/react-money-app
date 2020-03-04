@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import If from '../operator/if';
 import { selectTab } from './tabActions';
+
+import If from '../operator/if';
 
 class TabHeader extends Component {
   render() {
@@ -12,11 +13,11 @@ class TabHeader extends Component {
 
     return (
       <If test={visible}>
-        <li className={ selected ? 'active' : ''}>
-          <a 
-            href="javascript:;" 
-            onClick={() => this.props.selectTab(this.props.target)} 
-            data-toggle='tab' 
+        <li className={selected ? 'active' : ''}>
+          <a
+            href="javascript:;"
+            onClick={() => this.props.selectTab(this.props.target)}
+            data-toggle='tab'
             data-target={this.props.target}
           >
             <i className={`fa fa-${this.props.icon}`}></i> {this.props.label}
@@ -24,8 +25,8 @@ class TabHeader extends Component {
         </li>
       </If>
     )
-  }
-}
+  };
+};
 
 const mapStateToProps = state => ({ tab: state.tab });
 const mapDispatchToProps = dispatch => bindActionCreators({ selectTab }, dispatch);
